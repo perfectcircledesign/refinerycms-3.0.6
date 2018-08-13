@@ -1,0 +1,65 @@
+
+<script>
+  $(document).ready(function(){
+    var form = $('#new_image');
+    var app = {};
+
+    app._dropzoneSendingCallback = function(file, xhr, formData) {
+      $.each(form.data('form-data'), function(k, v) {
+        formData.append(k, v);
+      });
+    };
+
+    app._dropzoneCompleteCallback = function(file, data) {
+      <% if reload_after_upload %>
+        setTimeout(function () {
+          location.reload();
+        }, 5000);
+      <% else %>
+        parent.location.reload();
+      <% end %>
+    }
+
+    app._success = function(file, response){
+      $('#image_width').val(file.width);
+      $('#image_height').val(file.height);
+      $('#image_size').val(file.size);
+      $('#image_name').val(file.name);
+      $('#image_uid').val($($.parseXML(response)).find('Key').text() );
+      $('#image_mime_type').val(file.type);
+      $('.process').submit();
+    }
+
+    $( "[name='utf8']" ).remove();
+
+  // disable auto discover
+  Dropzone.autoDiscover = false;
+ 
+
+  var dropzone = new Dropzone (".dropzone", {
+    maxFilesize: 5, // Set the maximum file size to 256 MB
+    paramName: "image[image]", // Rails expects the file upload to be something like model[field_name]
+    addRemoveLinks: false, // Don't show remove links on dropzone itself.
+    url: form.data('url'),
+    method: "post",
+    acceptedMimeTypes: "image/bmp,image/gif,image/jpg,image/jpeg,image/png",
+    autoProcessQueue: true,
+    clickable: true,
+    parallelUploads: 3,
+    paramName: "file",
+    dataType: 'XML',
+    replaceFileInput: false,
+    formData: form.data('form-data'),
+    // accept: app._dropzoneAcceptCallback,÷
+    sending: app._dropzoneSendingCallback,
+    queuecomplete: app._dropzoneCompleteCallback,
+    success: app._success
+  }); 
+
+  
+});
+</script>
+
+
+
+

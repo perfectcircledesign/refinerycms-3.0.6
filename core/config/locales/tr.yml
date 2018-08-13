@@ -1,0 +1,84 @@
+tr:
+  refinery:
+    js:
+      admin:
+        confirm_changes: Yaptığınız değişiklikler kaybolacaktır. Kayıt etmeden devam etmek istediğinize emin misiniz ?
+    plugins:
+      refinery_core:
+        title: Refinery
+        description: Çekirdek refinery eklentisi
+      refinery_dialogs:
+        title: İletişim
+        description: Refinery diyalog eklentisi
+    welcome:
+      there_are_no_users: "Henüz kayıtlı bir kullanıcı yok. İlk önce sizi kayıt edelim."
+    crudify:
+      created: '%{what} başarı ile eklendi'
+      updated: '%{what} başarı ile güncellendi'
+      destroyed: '%{what} başarı ile silindi.'
+    site_bar:
+      log_out: Çıkış Yap
+      switch_to_your_website: Web Siteni Aç
+      switch_to_your_website_editor: Web Site Düzenleyicisini Aç
+    admin:
+      menu:
+        reorder_menu: Yeniden düzenleme menüsü
+        reorder_menu_done: Yeniden düzenleme tamamlandı
+      dialogs:
+        show:
+          save: Kayıt Et
+          cancel: Vazgeç
+      continue_editing:
+        save_and_continue_editing: 'Kaydet & Düzenlemeye Devam Et'
+      form_actions:
+        save: Kayıt Et
+        cancel: Vazgeç
+        cancel_lose_changes: Eğer vazgeç'e tıklarsanız burada yaptığınız değişiklikler kaybolacaktır.
+        delete: Sil
+        close: Kapat
+      image_picker:
+        none_selected: Seçilmiş bir fotoğraf bulunmamaktadir. Eklemek için buraya tıklayın
+        remove_current: Mevcut fotoğrafı sil
+        change: Fotoğraf seçmek için tıklayın
+        show: Göster
+      resource_picker:
+        download_current: Mevcut dosyayı indir
+        opens_in_new_window: Yeni bir pencerede aç
+        remove_current: "Mevcut dosyayı sil"
+        no_resource_selected: 'Herhangi bir dosya seçilmemiş. Eklemek icin tıklayın'
+        name: Dosya Ekle
+        current: Mevcut Dosya
+      search:
+        button_text: Arama
+        results_for_html: " &#8216;<em>%{query}</em>&#8217; için arama sonucu"
+        no_results: 'Üzgünüm, herhangi bir sonuç bulunamadı'
+        cancel_search: 'Aramayı iptal et'
+        input:
+          placeholder: "Arama&8230;"
+          help: "Buraya aradığınız karakterleri içeren en az 3 tane harf girin."
+      delete:
+        message: " '%{title}' Silmek istediğinize emin misiniz?"
+      error_messages:
+        problems_in_following_fields: Aşağıdaki alanlarda problem vardır.
+      help: yardım
+      form_advanced_options_menu:
+        advanced_options: Gelişmiş Seçenekler
+        toggle_advanced_options: Gelişmiş Seçenekleri Aç
+        save_as_draft: Taslak Olarak Kaydet
+    message:
+      close: Kapat
+      close_this_message: Bu Mesajı Kapat
+    draft_page_message:
+      not_live: Bu sayfa halka açık canlı görüntülemede değildir.
+    footer:
+      copyright: "Telif Hakkı © %{year} %{site_name}"
+    no_script:
+      enable_javascript_html: Bu sayfanın tüm fonksyonları için JavaScript'in aktif olması gerekmekte
+      here_are: İşte burada
+      instructions_enable_javascript_html: Tarayıcınızın JavaScript'inin nasıl aktif edileceğine dair talimatlar
+  time:
+    formats:
+      short: "%A, %d %B %Y"
+  will_paginate:
+    previous_label: "&laquo;"
+    next_label: "&raquo;"

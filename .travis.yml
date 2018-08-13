@@ -1,0 +1,38 @@
+language: ruby
+cache: bundler
+before_install: gem install bundler
+bundler_args: --without development
+before_script:
+  - export RETRY_COUNT=3
+  - bin/rake refinery:testing:dummy_app
+script:
+  - bin/rspec $EXTENSION/spec
+env:
+  - DB=postgresql EXTENSION=core
+  - DB=postgresql EXTENSION=pages
+  - DB=postgresql EXTENSION=images
+  - DB=postgresql EXTENSION=resources
+  - DB=mysql EXTENSION=core
+  - DB=mysql EXTENSION=pages
+  - DB=mysql EXTENSION=images
+  - DB=mysql EXTENSION=resources
+notifications:
+  email: true
+  irc:
+    use_notice: true
+    skip_join: true
+    channels:
+      - "irc.freenode.org#refinerycms"
+  campfire:
+    on_success: always
+    on_failure: always
+    rooms:
+      - secure: "X5X39BTgXacSdc32F8mIjJKPqm5dZzmgZfJ14qYpJeMETTdA5JfByt2uCfU8\njJkkxT+XGWta0bSSlRIHQJO6pK26U94A95VYDX0jNuneKEnsoAsqJ6U0VY6v\nH5oxXMAZ2perP/FH9ZsPNR+ulyFfbMQCeGPJw5AXKZQqzf6qPOI="
+  webhooks:
+    - https://webhooks.gitter.im/e/b5d48907cdc89864b874
+rvm:
+  - 2.3.1
+  - 2.2
+  - 2.1
+  - 2.0.0
+sudo: false
